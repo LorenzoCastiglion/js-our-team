@@ -18,7 +18,9 @@ body{
 
 }
 
-h1,  .nome{
+h1, h2, .nome, span{
     font-family: 'Alfa Slab One', cursive;
 }
+
+
 
