@@ -66,14 +66,16 @@ for(let element of team){
 // MILESTONE 1:
 // Stampare su console le informazioni di nome, ruolo e la stringa della foto
 
-const carte = document.getElementById('card')
+const carte = document.querySelector('.container')
 
 for(let element of team){
-    
+    const carta = document.createElement('div');
     for(let key in element){
-        const carta = document.createElement('div');
+       
+        const profile = document.createElement('div');
         carta.innerHTML += element[key];
-        carte.append(carta);
+        carte.append(carta)
+        carta.append(profile);
     }
     
 }
