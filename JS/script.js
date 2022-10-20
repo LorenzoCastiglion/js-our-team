@@ -18,7 +18,7 @@ const team = [
 
     {
         nome: 'Waine Barnett',
-        role: 'Founder & CEO',
+        role: 'Founder "&" CEO',
         photo: 'wayne-barnett-founder-ceo.jpg'
     },
 
@@ -69,15 +69,14 @@ for(let element of team){
 const carte = document.getElementById('card')
 
 for(let element of team){
+    
     for(let key in element){
-        const carta = document.createElement('div')
-        carta.innerHTML = `${key}: ${element[key]}`
+        const carta = document.createElement('div');
+        carta.innerHTML += element[key];
         carte.append(carta);
     }
     
 }
 
-
 // MILESTONE 2:
 // Stampare le stesse informazioni su DOM sottoforma di stringhe
-
