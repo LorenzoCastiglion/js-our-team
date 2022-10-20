@@ -72,7 +72,7 @@ for(let element of team){
 // Stampare le stesse informazioni su DOM sottoforma di stringheconst carte = document.querySelector('.container')
 
 
-const carte = document.querySelector('.container')
+const carte = document.getElementById('profili')
 
 carte.classList.add('row','flex-wrap', 'justify-content-center',  'm-auto', 'text-center')
 
@@ -120,3 +120,54 @@ function addCard(){
 
 
 addCard();
+
+// input dall'user che cicla l'array oggetto e parsa solo l'ultimo elemento trovato nell'array cosi' da prendere solo l'elemento pushato dall'user
+
+const btnAdd = document.querySelector('button')
+
+
+
+
+
+btnAdd.addEventListener('click', function addCardUser(){
+
+    for(let element of team.slice(-1)){
+        const carta = document.createElement('div');
+        carta.classList.add( 'text-center', 'col-3', 'm-4', 'p-3','border', 'border-5', 'border-dark' )
+        
+        
+        for(let key in element){
+           
+            if(key == 'nome'){
+                const innerCard =document.createElement('div')
+                innerCard.classList.add('nome')
+                innerCard.innerHTML = `${element[key]}`;
+                carte.append(carta)
+                carta.append(innerCard);
+            }
+            else if(key == 'role'){
+                const innerCard =document.createElement('div')
+                innerCard.classList.add('role')
+                innerCard.innerHTML = `${element[key]}`;
+                carte.append(carta)
+                carta.append(innerCard);
+            } 
+            else if(key == 'photo'){
+                // BONUS 1:
+                // Trasformare la stringa foto in una immagine effettiva
+                const innerCard =document.createElement('div')
+                innerCard.innerHTML = `${element[key]}` ;
+                innerCard.classList.add('photo', 'px-2' )
+                carte.append(carta)
+                carta.prepend(innerCard);
+            }
+           
+        }
+        
+    }
+
+    
+});
+
+
+
