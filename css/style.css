@@ -9,11 +9,14 @@
 
 body{
 
+    background-color: seashell;
+
     font-family: 'Raleway', sans-serif;
 
 
 }
 
-.photo img{
-    height: 100px;
+h1,  .nome{
+    font-family: 'Alfa Slab One', cursive;
 }
+

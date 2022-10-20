@@ -74,43 +74,49 @@ for(let element of team){
 
 const carte = document.querySelector('.container')
 
-carte.classList.add('row','flex-wrap', 'justify-content-center', 'align-items-center', 'm-auto')
+carte.classList.add('row','flex-wrap', 'justify-content-center',  'm-auto', 'text-center')
 
-for(let element of team){
-    const carta = document.createElement('div');
-    carta.classList.add('text-center', 'col-3', 'm-4', 'rounded-3', 'border', 'border-dark' )
-    
-    
-    for(let key in element){
-       
-        if(key == 'nome'){
-            const innerCard =document.createElement('div')
-            innerCard.classList.add('nome')
-            innerCard.innerHTML = `${element[key]}`;
-            carte.append(carta)
-            carta.append(innerCard);
+
+
+function addCard(){
+
+    for(let element of team){
+        const carta = document.createElement('div');
+        carta.classList.add( 'text-center', 'col-3', 'm-4', 'p-3','border', 'border-5', 'border-dark' )
+        
+        
+        for(let key in element){
+           
+            if(key == 'nome'){
+                const innerCard =document.createElement('div')
+                innerCard.classList.add('nome')
+                innerCard.innerHTML = `${element[key]}`;
+                carte.append(carta)
+                carta.append(innerCard);
+            }
+            else if(key == 'role'){
+                const innerCard =document.createElement('div')
+                innerCard.classList.add('role')
+                innerCard.innerHTML = `${element[key]}`;
+                carte.append(carta)
+                carta.append(innerCard);
+            } 
+            else if(key == 'photo'){
+                // BONUS 1:
+                // Trasformare la stringa foto in una immagine effettiva
+                const innerCard =document.createElement('div')
+                innerCard.innerHTML = `<img class="img-fluid my-3" src="../img/${element[key]}">`;
+                innerCard.classList.add('photo', 'px-2' )
+                carte.append(carta)
+                carta.prepend(innerCard);
+            }
+           
         }
-        else if(key == 'role'){
-            const innerCard =document.createElement('div')
-            innerCard.classList.add('role')
-            innerCard.innerHTML = `${element[key]}`;
-            carte.append(carta)
-            carta.append(innerCard);
-        } 
-        else if(key == 'photo'){
-            const innerCard =document.createElement('div')
-            innerCard.innerHTML = `<img src="../img/${element[key]}">`;
-            innerCard.classList.add('photo')
-            carte.append(carta)
-            carta.prepend(innerCard);
-        }
-        // const innerCard = document.createElement('div');
-        // carta.innerHTML += element[key];
-        // carte.append(carta)
-        // carta.append(innerCard);
+        
     }
+
     
 }
 
-// BONUS 1:
-// Trasformare la stringa foto in una immagine effettiva
+
+addCard();
