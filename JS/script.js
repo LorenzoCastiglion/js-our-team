@@ -74,7 +74,7 @@ for(let element of team){
 
 const carte = document.getElementById('profili')
 
-carte.classList.add('row','flex-wrap', 'justify-content-center',  'm-auto', 'text-center')
+carte.classList.add('row','flex-wrap', 'justify-content-center', 'm-auto', 'text-center')
 
 
 
@@ -105,7 +105,7 @@ function addCard(){
                 // BONUS 1:
                 // Trasformare la stringa foto in una immagine effettiva
                 const innerCard =document.createElement('div')
-                innerCard.innerHTML = `<img class="img-fluid my-3" src="../img/${element[key]}">`;
+                innerCard.innerHTML = `<img class="img-fluid my-3 rounded-2 " src="../img/${element[key]}">`;
                 innerCard.classList.add('photo', 'px-2' )
                 carte.append(carta)
                 carta.prepend(innerCard);
@@ -123,13 +123,31 @@ addCard();
 
 // input dall'user che cicla l'array oggetto e parsa solo l'ultimo elemento trovato nell'array cosi' da prendere solo l'elemento pushato dall'user
 
-const btnAdd = document.querySelector('button')
+const btnAdd = document.querySelector('button');
+
 
 
 
 
 
 btnAdd.addEventListener('click', function addCardUser(){
+
+    const nomeUser = document.getElementById('nome-utente');
+    const ruoloUser = document.getElementById('ruolo-utente');
+
+    let rndphoto = randomNumber(1,100);
+    
+    let newUser = {
+
+        nome: nomeUser.value,
+
+        role: ruoloUser.value,
+
+        photo: `https://picsum.photos/400/429?random=${rndphoto}`
+    }
+
+    team.push(newUser);
+    
 
     for(let element of team.slice(-1)){
         const carta = document.createElement('div');
@@ -156,7 +174,7 @@ btnAdd.addEventListener('click', function addCardUser(){
                 // BONUS 1:
                 // Trasformare la stringa foto in una immagine effettiva
                 const innerCard =document.createElement('div')
-                innerCard.innerHTML = `${element[key]}` ;
+                innerCard.innerHTML = `<img class="img-fluid my-3 rounded-2 " src=${element[key]}>` ;
                 innerCard.classList.add('photo', 'px-2' )
                 carte.append(carta)
                 carta.prepend(innerCard);
@@ -165,7 +183,8 @@ btnAdd.addEventListener('click', function addCardUser(){
         }
         
     }
-
+    nomeUser.value = '';
+    ruoloUser.value = '';
     
 });
 
