@@ -13,3 +13,7 @@ body{
 
 
 }
+
+.photo img{
+    height: 100px;
+}
