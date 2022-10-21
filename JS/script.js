@@ -105,7 +105,7 @@ function addCard(){
                 // BONUS 1:
                 // Trasformare la stringa foto in una immagine effettiva
                 const innerCard =document.createElement('div')
-                innerCard.innerHTML = `<img class="img-fluid my-3 rounded-2 " src="../img/${element[key]}">`;
+                innerCard.innerHTML = `<img class="img-fluid my-3 rounded-2 " src="./img/${element[key]}">`;
                 innerCard.classList.add('photo', 'px-2' )
                 carte.append(carta)
                 carta.prepend(innerCard);
